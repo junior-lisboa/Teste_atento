@@ -25,3 +25,14 @@ data2012=pd.read_json('/content/drive/MyDrive/Colab Notebooks/data-sample_data-n
 
 #### Nesta variavel estão sendo concatenadas as variaveis anteriores em uma, para facilitar as analise que tem como relevancia os 4 anos
 dfgeral=pd.concat([data2009,data2010,data2011,data2012])
+
+## Primeiro desafio
+### Qual a distância média percorrida por viagens com no máximo 2 passageiros
+
+#### Nesse desafio foi necessario pegar os dados dos 4 anos juntos, e passar apenas 
+#### as colunas referentes a quantidade de passageiros(passenger_count) e a distancia percorrida(trip_distance)
+dfmediaviagem=dfgeral[['passenger_count','trip_distance']]
+#### Após filtradas as colunas foi feita uma filtragem nos dados para serem pegas apenas as viagens com até 2 passageiros
+dfresultado1=dfmediaviagem[dfmediaviagem['passenger_count'] <= 2]
+#### E finalmente após serem filtrados apénas os dados necessarios para a analise foi usado uma função da biblioteca pandas para adquirir a média de distancia
+dfresultado1.mean()
