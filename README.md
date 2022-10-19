@@ -3,6 +3,7 @@ Teste Realizado para avaliação tecnica Atento, todos os desafios que requerira
 no ambiente do Google Colab.
 
 Link para o colab com os codigos:https://colab.research.google.com/drive/10LbK04DOA9qvhX4U-k16F49-G3smLRfK?usp=sharing
+Link para o arquivo Analise.html:https://junior-lisboa.github.io/Teste_atento/Analise
 
 ## Importação das bibliotecas do Python utilizadas
 
