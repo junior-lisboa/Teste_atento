@@ -4,19 +4,14 @@ no ambiente do Google Colab.
 
 ## Importação das bibliotecas do Python utilizadas
 
-** A biblioteca Pandas no caso deste teste é a principal biblioteca utilizada pois com ela é possivel fazer as manipulações necessarias com os dados
 import pandas as pd  
 
-**
 import numpy as np
 
-**
 import matplotlib.pyplot as plt
 
-**
 import seaborn as sns
 
-**
 from matplotlib.pyplot import figure
 
 ## importação dos dados utilizados no teste
