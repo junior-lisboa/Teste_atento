@@ -15,7 +15,7 @@ import seaborn as sns
 from matplotlib.pyplot import figure
 
 ## importação dos dados utilizados no teste
-** Os arquivos utilizados foram previamente armazenados no Drive
+### Os arquivos utilizados foram previamente armazenados no Drive
 
 data2009=pd.read_json('/content/drive/MyDrive/Colab Notebooks/data-sample_data-nyctaxi-trips-2009-json_corrigido.json',  lines=True)
 data2010=pd.read_json('/content/drive/MyDrive/Colab Notebooks/data-sample_data-nyctaxi-trips-2010-json_corrigido.json',  lines=True)
