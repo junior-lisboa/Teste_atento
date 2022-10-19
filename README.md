@@ -49,13 +49,21 @@ dfvendors2.sort_values('total_amount', ascending=False)
 ## Terceiro desafio
 ### Faça um histograma da distribuição mensal, nos 4 anos, de corridas pagas em dinheiro(Neste desafio será explicada apenas uma das analises feitas para não se extender demais)
 
+####  Nesse desafio foram filtrados dos dados referentes aos 4 anos(tambem foram feitas as anlises de cada ano separadamente), as colunas da data de ida(pickup_datetime) e a coluna tipo de pagamento(payment_type):
 dfgrafico=dfgeral[['pickup_datetime','payment_type']]
+#### Neste ponto foi feita uma conversão dos dados da coluna de data de ida que estava como objeto e foi convertida para datetime, assim sendo possivel trabalhar com as datas:
 dfgrafico['pickup_datetime']=pd.to_datetime(dfgrafico.pickup_datetime)
+#### Neste ponto foi feita uma padronização da coluna de metodo de pagamento para deixar todos os dados em caixa alta:
 dfgrafico['payment_type']=dfgrafico['payment_type'].str.upper()
+#### Neste trecho filtramos todos os dados que são referentes ao pagamento em dinheiro
 dfFiltrado=dfgrafico[dfgrafico['payment_type']=='CASH']
+#### Neste trecho foi montado o grafico de histograma que apresenta neste caso os 4 anos (no arquivo analise.html terão os outros anos), mostrando uma barra para cada mês dos anos:
 plt.hist(dfFiltrado['pickup_datetime'],48,rwidth=0.9)
 plt.title('Pagamento em dinheiro', fontsize=18)
 plt.xlabel('Meses por anos(por semestre)')
 plt.ylabel('Pagamento em dinheiro')
 plt.figure(figsize=(1,1))
 plt.show()
+
+## Quarto desafio
+### Faça um gráfico de série temporal contando a quantidade de gorjetas de cada dia, nos últimos 3 meses de 2012
