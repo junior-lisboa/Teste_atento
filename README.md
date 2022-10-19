@@ -1,6 +1,6 @@
 # Teste_atento
 Teste Realizado para avaliação tecnica Atento, todos os desafios que requeriram código foram realizados
-no ambiente do Google Colab.Os graficos e resultados estarão no arquivo analise.html
+no ambiente do Google Colab.Os graficos e resultados estarão no arquivo analise.html.
 
 Link para o colab com os codigos:https://colab.research.google.com/drive/10LbK04DOA9qvhX4U-k16F49-G3smLRfK?usp=sharing
 
@@ -83,7 +83,7 @@ df20123 = selecao
 df20123['pickup_datetime']= df20123['pickup_datetime'].dt.date
 #### Neste momento são agrupados os dados do mesmo dia e somados os valores de gorjeta, assim facilitando a criação do grafico de serie temporal:
 dfFinal=df20123.groupby('pickup_datetime', as_index=False)['tip_amount'].sum()
-#### Finalmente é apresentado o grafico de serie temporal utilizando a biblioteca seaborn apartir do codigo abaixo
+#### Finalmente é apresentado o grafico de serie temporal utilizando a biblioteca seaborn apartir do codigo abaixo:
 plt.figure( figsize = ( 12, 5)) 
 sns.lineplot( x = 'pickup_datetime', 
              y = 'tip_amount', 
