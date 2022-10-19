@@ -67,3 +67,21 @@ plt.show()
 
 ## Quarto desafio
 ### Faça um gráfico de série temporal contando a quantidade de gorjetas de cada dia, nos últimos 3 meses de 2012
+
+#### Neste desafio foram pegos as colunas de data de ida(Pickup_datetime) e a coluna de gorjeta(tip_amount) referentes ao ano de 2012:
+dfgorjetas=data2012[['pickup_datetime','tip_amount']]
+#### Neste ponto foi feita uma conversão dos dados da coluna de data de ida que estava como objeto e foi convertida para datetime, assim sendo possivel trabalhar com as datas:
+dfgorjetas['pickup_datetime']=pd.to_datetime(dfgorjetas.pickup_datetime)
+#### Neste ponto são filtrados os dados para serem pegos apenas os ultmos meses do ano que são apartir de outubro(10) no caso do codigo abaixo, e esses dados são salvos em uma nova variavel:
+selecao = dfgorjetas[dfgorjetas['pickup_datetime'].dt.month >= 10]
+df20123 = selecao
+#### Neste momento é retirado os dados de "hora" da coluna de data:
+df20123['pickup_datetime']= df20123['pickup_datetime'].dt.date
+#### Neste momento são agrupados os dados do mesmo dia e somados os valores de gorjeta, assim facilitando a criação do grafico de serie temporal:
+dfFinal=df20123.groupby('pickup_datetime', as_index=False)['tip_amount'].sum()
+#### Finalmente é apresentado o grafico de serie temporal utilizando a biblioteca seaborn apartir do codigo abaixo
+plt.figure( figsize = ( 12, 5)) 
+sns.lineplot( x = 'pickup_datetime', 
+             y = 'tip_amount', 
+             data = dfFinal, 
+             label = 'Gorjetas por dia')
