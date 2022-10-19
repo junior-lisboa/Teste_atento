@@ -47,9 +47,9 @@ dfvendors2=dfvendors.groupby('vendor_id', as_index=False)['total_amount'].sum()
 dfvendors2.sort_values('total_amount', ascending=False)
 
 ## Terceiro desafio
-### Faça um histograma da distribuição mensal, nos 4 anos, de corridas pagas em dinheiro(Neste desafio será explicada apenas uma das analises feitas para não se extender demais)
+### Faça um histograma da distribuição mensal, nos 4 anos, de corridas pagas em dinheiro
 
-####  Nesse desafio foram filtrados dos dados referentes aos 4 anos(tambem foram feitas as anlises de cada ano separadamente), as colunas da data de ida(pickup_datetime) e a coluna tipo de pagamento(payment_type):
+####  Nesse desafio foram filtrados dos dados referentes aos 4 anos, as colunas da data de ida(pickup_datetime) e a coluna tipo de pagamento(payment_type):
 dfgrafico=dfgeral[['pickup_datetime','payment_type']]
 #### Neste ponto foi feita uma conversão dos dados da coluna de data de ida que estava como objeto e foi convertida para datetime, assim sendo possivel trabalhar com as datas:
 dfgrafico['pickup_datetime']=pd.to_datetime(dfgrafico.pickup_datetime)
@@ -57,7 +57,7 @@ dfgrafico['pickup_datetime']=pd.to_datetime(dfgrafico.pickup_datetime)
 dfgrafico['payment_type']=dfgrafico['payment_type'].str.upper()
 #### Neste trecho filtramos todos os dados que são referentes ao pagamento em dinheiro
 dfFiltrado=dfgrafico[dfgrafico['payment_type']=='CASH']
-#### Neste trecho foi montado o grafico de histograma que apresenta neste caso os 4 anos (no arquivo analise.html terão os outros anos), mostrando uma barra para cada mês dos anos:
+#### Neste trecho foi montado o grafico de histograma que apresenta neste caso os 4 anos, mostrando uma barra para cada mês dos anos(48 barras):
 plt.hist(dfFiltrado['pickup_datetime'],48,rwidth=0.9)
 plt.title('Pagamento em dinheiro', fontsize=18)
 plt.xlabel('Meses por anos(por semestre)')
