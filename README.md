@@ -38,3 +38,24 @@ dfresultado1.mean()
 
 ## Segundo desafio
 ### Quais os 3 maiores vendors em quantidade total de dinheiro arrecadado
+
+#### Nesse desafio foram filtrados dos dados referentes aos 4 anos, as colunas de ID dos Vendors e a coluna faturamento total:
+dfvendors=dfgeral[['vendor_id','total_amount']]
+#### Para efetuar a soma dos valores de acordo com cada vendor cadastrado foi necessario usar uma função de groupby tendo os parametros da coluna vendor para agrupar, e posteriormente utilizouse a função de soma para somar os valores arrecadados:
+dfvendors2=dfvendors.groupby('vendor_id', as_index=False)['total_amount'].sum()
+#### Para apresentar os dados na forma decrescente para sabermos os 3 maiores vendors, foi utilizado a função sort_values indicando a coluna de faturamento total como parametro e indicando "Falso" a demonstração ascendente dos dados:
+dfvendors2.sort_values('total_amount', ascending=False)
+
+## Terceiro desafio
+### Faça um histograma da distribuição mensal, nos 4 anos, de corridas pagas em dinheiro(Neste desafio será explicada apenas uma das analises feitas para não se extender demais)
+
+dfgrafico=dfgeral[['pickup_datetime','payment_type']]
+dfgrafico['pickup_datetime']=pd.to_datetime(dfgrafico.pickup_datetime)
+dfgrafico['payment_type']=dfgrafico['payment_type'].str.upper()
+dfFiltrado=dfgrafico[dfgrafico['payment_type']=='CASH']
+plt.hist(dfFiltrado['pickup_datetime'],48,rwidth=0.9)
+plt.title('Pagamento em dinheiro', fontsize=18)
+plt.xlabel('Meses por anos(por semestre)')
+plt.ylabel('Pagamento em dinheiro')
+plt.figure(figsize=(1,1))
+plt.show()
