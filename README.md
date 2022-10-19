@@ -35,3 +35,6 @@ dfmediaviagem=dfgeral[['passenger_count','trip_distance']]
 dfresultado1=dfmediaviagem[dfmediaviagem['passenger_count'] <= 2]
 #### E finalmente após serem filtrados apénas os dados necessarios para a analise foi usado uma função da biblioteca pandas para adquirir a média de distancia:
 dfresultado1.mean()
+
+## Segundo desafio
+### Quais os 3 maiores vendors em quantidade total de dinheiro arrecadado
