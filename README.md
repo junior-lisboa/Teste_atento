@@ -1,6 +1,6 @@
 # Teste_atento
 Teste Realizado para avaliação tecnica Atento, todos os desafios que requeriram código foram realizados
-no ambiente do Google Colab.
+no ambiente do Google Colab.Os graficos e resultados estarão no arquivo analise.html
 
 Link para o colab com os codigos:https://colab.research.google.com/drive/10LbK04DOA9qvhX4U-k16F49-G3smLRfK?usp=sharing
 
